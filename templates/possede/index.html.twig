@@ -9,6 +9,7 @@
 {% for pos in possed %}
 <div>
 {{ pos.personne.nom }} {{ pos.personne.prenom }} possède {{ pos.nombres }} {{ pos.animals.nom }}{% if pos.nombres >1 %}s{% endif %}
+
 </div>
 {% endfor %}
 </div>

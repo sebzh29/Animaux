@@ -34,24 +34,24 @@ class PossedeController extends AbstractController
     }
 
     /**
-     * @Route("/possedeMoinsD/{nb}", name="possedeMoinsDe")
+     * @Route("/possedeMoinsD/{nb}", name="possedeMoinsD")
      */
     public function possedeInfNb(PossedeRepository $pr,$nb): Response
     {
         // personne possedant les zanimos inferieur strict
-        $result = $pr->findPossedeInfNb('<',$nb);
+        $result = $pr->findPossedeHave('<',$nb);
         return $this->render('possede/index.html.twig', [
             'possed' => $result,
         ]);
     }
 
      /**
-     * @Route("/possedePlusD/{nb}", name="possedePlusDe")
+     * @Route("/possedePlusD/{nb}", name="possedePlusD")
      */
     public function possedePlus(PossedeRepository $pr,$nb): Response
     {
         // personne possedant les zanimos superieur strict
-        $result = $pr->findPossedePlus('>',$nb);
+        $result = $pr->findPossedeHave('>',$nb);
         return $this->render('possede/index.html.twig', [
             'possed' => $result,
         ]);
