@@ -10,31 +10,31 @@ use Symfony\Component\Routing\Annotation\Route;
 class PossedeController extends AbstractController
 {
     /**
-     * @Route("/possedeMoinsDe/{nb}", name="possedeMoinsDe")
+     * @Route("/<=/{nb}", name="possedeMoinsDe")
      */
     public function possedeMoinsDe(PossedeRepository $pr,$nb): Response
     {
         // personne possedant les zanimos inferieur ou egal
-        $result = $pr->findPossedeHaveLessThan($nb);
+        $result = $pr->findPossedeHave('<=',$nb);
         return $this->render('possede/index.html.twig', [
             'possed' => $result,
         ]);
     }
 
      /**
-     * @Route("/possedePlusDe/{nb}", name="possedePlusDe")
+     * @Route("/>=/{nb}", name="possedePlusDe")
      */
     public function possedePlusDe(PossedeRepository $pr,$nb): Response
     {
         // personne possedant les zanimos superieur ou egal
-        $result = $pr->findPossedeHaveOverThan($nb);
+        $result = $pr->findPossedeHave('>=',$nb);
         return $this->render('possede/index.html.twig', [
             'possed' => $result,
         ]);
     }
 
     /**
-     * @Route("/possedeMoinsD/{nb}", name="possedeMoinsD")
+     * @Route("/</{nb}", name="possedeMoinsD")
      */
     public function possedeInfNb(PossedeRepository $pr,$nb): Response
     {
@@ -46,7 +46,7 @@ class PossedeController extends AbstractController
     }
 
      /**
-     * @Route("/possedePlusD/{nb}", name="possedePlusD")
+     * @Route("/>/{nb}", name="possedePlusD")
      */
     public function possedePlus(PossedeRepository $pr,$nb): Response
     {

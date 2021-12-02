@@ -48,23 +48,23 @@ class PossedeRepository extends ServiceEntityRepository
     }
     */
 
-    public function findPossedeHaveLessThan($value) {
-        return $this->createQueryBuilder('p')
-        ->andWhere('p.nombres <= :val')
-        ->setParameter('val', $value)
-        ->getQuery()
-        ->getResult()
-        ;
-    }
+    // public function findPossedeHaveLessThan($value) {
+    //     return $this->createQueryBuilder('p')
+    //     ->andWhere('p.nombres <= :val')
+    //     ->setParameter('val', $value)
+    //     ->getQuery()
+    //     ->getResult()
+    //     ;
+    // }
 
-    public function findPossedeHaveOverThan($value) {
-        return $this->createQueryBuilder('p')
-        ->andWhere('p.nombres >= :val')
-        ->setParameter('val', $value)
-        ->getQuery()
-        ->getResult()
-        ;
-    }
+    // public function findPossedeHaveOverThan($value) {
+    //     return $this->createQueryBuilder('p')
+    //     ->andWhere('p.nombres >= :val')
+    //     ->setParameter('val', $value)
+    //     ->getQuery()
+    //     ->getResult()
+    //     ;
+    // }
 
     public function findPossedeHave($s,$value) {
         return $this->createQueryBuilder('p')
