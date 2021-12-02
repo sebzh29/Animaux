@@ -56,4 +56,33 @@ class PossedeRepository extends ServiceEntityRepository
         ->getResult()
         ;
     }
+
+    public function findPossedeHaveOverThan($value) {
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.nombres >= :val')
+        ->setParameter('val', $value)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
+    public function findPossedeInfNb($value) {
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.nombres < :val')
+        ->setParameter('val', $value)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
+    public function findPossedePlus($value) {
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.nombres > :val')
+        ->setParameter('val', $value)
+        ->getQuery()
+        ->getResult()
+        ;
+    }
+
+
 }
